@@ -11,12 +11,12 @@
      // START APP
      printf("Welcome to the time machine!\n\n");
 
-     // reading file
+     // catching data from files.txt
      FILE *fptr;
 
     fptr = fopen("files.txt", "r");
 
-    // perguntas e respostas
+    // questions and answers
     char questions[80];
     char answer1[200];
     char answer2[200];
@@ -24,22 +24,23 @@
 
     fgets(questions, 80, fptr);
     printf("%s\n", questions);
-    scanf("%s", answer1);
+    fgets(answer1, sizeof(answer1), stdin); // fgets instead of scanf
 
     fgets(questions, 80, fptr);
     printf("%s\n", questions);
-    scanf("%s", answer2);
+    fgets(answer2, sizeof(answer2), stdin);
 
     fgets(questions, 80, fptr);
     printf("%s\n", questions);
-    scanf("%s", answer3);
+    fgets(answer3, sizeof(answer3), stdin);
     fclose(fptr);
 
+    // Creating the answers file
     FILE *fptt;
-
     fptt = fopen("answers.txt", "w");
     fclose(fptt);
 
+    // storing the answers
     FILE *fpty;
 
     fpty = fopen("answers.txt", "w");
