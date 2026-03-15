@@ -3,6 +3,8 @@
   * - The answers will be storaged in an txt files. */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
  int main() {
      // START APP
@@ -51,8 +53,12 @@
 
     fclose(fpty);
 
+    // Waiting time
+    system("clear");
+    printf("Wait a little..\n");
+    sleep(3);
+    system("clear");
     // See the results:
-
     char answers[300];
 
     printf("Your results: \n\n");
