@@ -11,7 +11,7 @@
      // catching data from files.txt
      FILE *fptr;
 
-    fptr = fopen("files.txt", "r");
+    fptr = fopen("questions.txt", "r");
 
     // questions and answers
     char questions[80];
