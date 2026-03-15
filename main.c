@@ -1,10 +1,9 @@
  /* CREATING A TIME MACHINE
   * - The file consists in questions of a txt file.
-  * - The answers will be storaged in an txt files and discovered 1 year after. */
+  * - The answers will be storaged in an txt files. */
 
 #include <stdio.h>
-#include <string.h>
-#include <time.h>
+
  int main() {
      // START APP
      printf("Welcome to the time machine!\n\n");
@@ -38,6 +37,7 @@
 
     // Creating the answers file
     FILE *fptt;
+
     fptt = fopen("answers.txt", "w");
     fclose(fptt);
 
@@ -45,9 +45,23 @@
     FILE *fpty;
 
     fpty = fopen("answers.txt", "w");
-    fprintf(fpty, "%s", answer1);
-    fprintf(fpty, "%s", answer2);
-    fprintf(fpty, "%s", answer3);
+    fprintf(fpty, "WHAT IS YOUR DREAM: %s", answer1);
+    fprintf(fpty, "WHY DID YOU WANT TO DO THAT: %s", answer2);
+    fprintf(fpty, "HOW MANY TIME YOU PRETEND TO SPEND TO REALISE IT: %s", answer3);
 
     fclose(fpty);
+
+    // See the results:
+
+    char answers[300];
+
+    printf("Your results: \n\n");
+    FILE *fptu;
+
+    fptu = fopen("answers.txt", "r");
+    while (fgets(answers, 300, fptu)) {
+        printf("%s\n", answers);
+    }
+
+    fclose(fptu);
  }
